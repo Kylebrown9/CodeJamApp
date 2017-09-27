@@ -1,0 +1,29 @@
+extends layout
+
+mixin submit-form(question)
+    form(id='form', method='POST', action='/submit/'+question, class='pure-form pure-form-aligned')
+        fieldset
+            div.pure-control-group
+                label(for='name') Contestant Name
+                input(type='text', name='name')
+
+            div.pure-control-group
+                label(for='submission') Submission
+                textarea(rows='10', form='form', name='submission').pure-input-2-3
+
+            div.pure-controls
+                button(type='submit', class='pure-button pure-button-primary') Submit
+
+block content
+    div.header
+        h1= title
+
+    div.content!= markdown
+    div.content
+        if hasInput
+            br
+            a(href=inputPath, style='margin: auto; text-align: center;', download) Challenge Input
+            br
+
+        br
+        +submit-form(title)

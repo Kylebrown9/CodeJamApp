@@ -1,0 +1,30 @@
+extends layout
+
+mixin submit-form(options)
+  form(id='form', method='POST', action='/submit', class='pure-form pure-form-aligned')
+    fieldset
+      div.pure-control-group
+        label(for='id') Challenge Name
+        select(name='id')
+          each qName in options
+            option(value=qName) #{qName}
+
+      div.pure-control-group
+        label(for='submission') Submission
+        textarea(rows='10', form='form', name='submission').pure-input-2-3
+        //input(type='text', name='submission', placeholder='Hello World')
+
+      div.pure-controls
+        button(type='submit', class='pure-button pure-button-primary') Submit
+
+block content
+  div.header
+    h1= title
+    h2 Welcome to the #{title}
+
+  div.content
+    p.
+      This page will allow you to verify your answers for the ACM code jam.
+      Select the question you are answering and then place your response in the
+      text area below.
+    +submit-form(questions)

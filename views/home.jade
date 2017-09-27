@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  meta(http-equiv='refresh', content='5')
+
+  div.header
+    h1= title
+    h2 Welcome to the #{title}
+
+  div.content
+    p.
+      This is the home page for the ACM Code Jam which will run from hh:mm to hh:mm.
+
+      To get started select a problem link from the sidebar. Each problem will have a
+      description and submission form for your answer. Some questions may also have a
+      link to input if it is needed for the problem
+    br
+    table.pure-table
+      thead
+        tr
+          th Contestant
+          th Score
+          each qName in questionNames
+            th= qName
+
+      tbody
+        each contestant in contestants
+          tr
+            td= contestant
+            td= scores[contestant]
+            each qName in questionNames
+              td= scoreboard[contestant][qName] ? questions[qName].getPoints() : 0
+
+
+

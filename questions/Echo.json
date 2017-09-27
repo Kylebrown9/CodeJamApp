@@ -1,0 +1,7 @@
+{
+  "name": "Echo",
+  "points": 2,
+  "input-path": "/Echo_Input.txt",
+  "prompt-path": "./questions/prompts/Echo_Prompt.md",
+  "answer-path": "./questions/answers/Echo_Output.txt"
+}

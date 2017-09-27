@@ -1,0 +1,6 @@
+{
+  "name": "Hello World",
+  "points": 1,
+  "prompt": "This question is a test meant to ensure that the system is working, the expected answer is \"Hello World\"",
+  "answer": "Hello World"
+}
